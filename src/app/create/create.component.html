@@ -1,0 +1,15 @@
+<div class=main-container>
+    <div class="container-one">
+        <button id="left-button"(click)="elementLeft();imageDisplay()"> <img src="../../assets/arrow-left.svg" height="30" width="30"/> </button>
+        <img id="element-display" src={{elementFile}} width="60" height="60">
+        <button id="right-button"(click)="elementRight();imageDisplay()"> <img src="../../assets/arrow-right.svg" height="30" width="30"/> </button>
+    </div>
+    <input type="text" [(ngModel)]="monsterName" placeholder="name">
+    <div class="container-two">
+        <img src="../../assets/attack.svg" height="30" width="30"/>
+        <input type="number"[(ngModel)]="monsterAttack" >
+        <img src="../../assets/defense.svg" height="30" width="30"/>
+        <input type="number"[(ngModel)]="monsterDefense" >
+    </div>
+    <button id="add-button" (click)="saveMonster()">Add</button>
+</div>
