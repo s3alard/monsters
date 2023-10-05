@@ -1,7 +1,7 @@
-<input type="search" placeholder="search"/>
-<div >
-<app-item  [itemNumber]=0></app-item>
-<app-item  [itemNumber]=1></app-item>
-<app-item  [itemNumber]=2></app-item>
+<input type="search" placeholder="search" />
+<div>
+  <app-item
+    *ngFor="let monsterItem of monstersList"
+    [monster]="monsterItem"
+  ></app-item>
 </div>
-

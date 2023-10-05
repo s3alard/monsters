@@ -1,15 +1,27 @@
-<div class=main-container>
-    <div class="container-one">
-        <button id="left-button"(click)="elementLeft();imageDisplay()"> <img src="../../assets/arrow-left.svg" height="30" width="30"/> </button>
-        <img id="element-display" src={{elementFile}} width="60" height="60">
-        <button id="right-button"(click)="elementRight();imageDisplay()"> <img src="../../assets/arrow-right.svg" height="30" width="30"/> </button>
-    </div>
-    <input type="text" [(ngModel)]="monsterName" placeholder="name">
-    <div class="container-two">
-        <img src="../../assets/attack.svg" height="30" width="30"/>
-        <input type="number"[(ngModel)]="monsterAttack" >
-        <img src="../../assets/defense.svg" height="30" width="30"/>
-        <input type="number"[(ngModel)]="monsterDefense" >
-    </div>
-    <button id="add-button" (click)="saveMonster()">Add</button>
+<div class="main-container">
+  <div class="container-one">
+    <button id="left-button" (click)="changeElement(-1)">
+      <img [src]="'eleresi ut' + selectedElement + '.svg'" height="30" width="30" />
+    </button>
+
+    <img width="60" height="60" />
+
+    <button id="right-button" (click)="changeElement(1)">
+      <img height="30" width="30" />
+    </button>
+  </div>
+
+  <input type="text" placeholder="name" [value]="name" (change)="changeName($event)"/>
+
+  <div class="container-two">
+
+    <img src="../../assets/attack.svg" height="30" width="30" />
+    <input type="number" [value]="attack" (change)="changeAttack($event)" />
+
+    <img src="../../assets/defense.svg" height="30" width="30" />
+    <input type="number" [value]="defense" (change)="changeDefense($event)"/>
+
+  </div>
+
+  <button id="add-button" (click)="saveMonster()">Add</button>
 </div>

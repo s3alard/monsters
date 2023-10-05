@@ -1,26 +1,21 @@
-import { Component, OnInit} from '@angular/core';
-
-
-
-
+import { Component, Input, OnInit } from '@angular/core';
+import { IMonsterData } from '../app.component';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
-export class ListComponent {
-  
-  ngOnInit(): void {
-    interface monsterData {
-      element: number;
-      name: string;
-      attack:number;
-      defense:number;
-    }
-    let existingRecords: monsterData[] = JSON.parse(
-      localStorage.getItem("monsterData") || "[]"
+export class ListComponent implements OnInit {
+  @Input() public monstersList: IMonsterData[] = [];
+
+  public searchText = '';
+
+  public filteredMonstersList: IMonsterData[] = [];
+
+  public ngOnInit(): void {
+    this.filteredMonstersList = this.monstersList.filter((monster) =>
+      monster.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
-    length=existingRecords.length;
   }
 }

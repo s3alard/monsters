@@ -1,5 +1,5 @@
 <h3>Monsters</h3>
 <p>Create Monster</p>
-<app-create></app-create>
+<app-create (monsterCreated)="saveMonster($event)"></app-create>
 <p>Monsters</p>
-<app-list></app-list>
+<app-list [monstersList]="monsters"></app-list>
